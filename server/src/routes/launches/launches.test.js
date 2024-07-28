@@ -4,11 +4,15 @@ const {
     mongoConnect,
     mongoDisconnect,
 } = require('../../services/mongo');
+const {
+    loadPlanetData,
+} = require('../../models/planets.model');
 
 //create a test fixture with differeent test cases by using describe function and passing in a group of tests
 describe('Launches API', () => {
     beforeAll(async () => {
         await mongoConnect();
+        await loadPlanetData();
     });
 
     afterAll(async () => {
