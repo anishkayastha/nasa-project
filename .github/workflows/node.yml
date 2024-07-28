@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x, 20.x]
-        mongodb-version: ['6.2']
+        mongodb-version: ['6.0.x']
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Use MongoDB from GitHub actions
+      - name: Use MongoDB from GitHub Actions
         uses: supercharge/mongodb-github-action@1.11.0
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
